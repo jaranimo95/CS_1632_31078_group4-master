@@ -1,0 +1,18 @@
+import pexpect
+
+output = ""
+
+gameBoard = pexpect.spawn("java -jar dist/Client/BattleshipClient.jar")
+gameboard.expect("You have registered as Player 1")
+output += gameBoard.before
+output += gameBoard.after
+
+gameboard.expect("Please enter a start coordinate to place your Carrier")
+output += gameBoard.before
+output += gameBoard.after
+gameBoard.sendline("A:1")
+
+gameBoard.expect("Please enter an end coordinate for your Carrier")
+output += gameBoard.before
+output += gameBoard.after
+gameBoard.sendline("A:5")
